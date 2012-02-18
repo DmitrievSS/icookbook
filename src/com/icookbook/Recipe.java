@@ -7,10 +7,12 @@ public class Recipe {
 	private int id;
 	private String name;
 	private List<Step> steps;
+	private String category;
 	
-	public Recipe(int id, String name, List<Step> steps) {
+	public Recipe(int id, String name, String category, List<Step> steps) {
 		this.id= id;
 		this.name = name;
+		this.category = category;
 		this.steps = steps;
 	}
 
@@ -44,5 +46,15 @@ public class Recipe {
 			return false;
 		Recipe r = (Recipe)obj;
 		return id == r.id && name.equals(r.name) && steps.equals(r.steps);
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		if (category == null)
+			throw new IllegalArgumentException();
+		this.category = category;
 	}
 }

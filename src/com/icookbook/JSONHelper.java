@@ -20,10 +20,9 @@ public final class JSONHelper {
 		final int bufSize = 256;
 		char[] buf = new char[bufSize];
 		int offset = 0;
-		int read = 0;
 		StringBuilder builder = new StringBuilder();
 		try {
-			while ((read=reader.read(buf, offset, bufSize)) != -1) {
+			while (reader.read(buf, offset, bufSize) != -1) {
 				builder.append(buf);
 			}
 		} catch (IOException e) {
@@ -52,12 +51,13 @@ public final class JSONHelper {
 	public static Recipe parseRecipe(JSONObject obj) throws JSONException {
 		int id = obj.getInt("id");
 		String name = obj.getString("name");
+		String category = obj.getString("category");
 		JSONArray arrSteps = obj.getJSONArray("steps");
 		ArrayList<Step> steps = new ArrayList<Step>(arrSteps.length());
 		for (int i = 0;i<arrSteps.length();i++) {
 			steps.add(parseStep(arrSteps.getJSONObject(i)));
 		}
-		return new Recipe(id, name, steps);
+		return new Recipe(id, name, category, steps);
 	}
 	
 	public static Step parseStep(JSONObject obj) throws JSONException {

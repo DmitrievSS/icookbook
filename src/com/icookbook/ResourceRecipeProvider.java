@@ -28,8 +28,7 @@ public class ResourceRecipeProvider extends RecipeProvider {
 
 	@Override
 	public void save(Recipe r) {
-		// TODO Auto-generated method stub
-
+		throw new IllegalArgumentException("Method not available for resources");
 	}
 
 }

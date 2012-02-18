@@ -1,12 +1,14 @@
 [
 	{
 		"id": 0,
-		"name": "Борщ",
+		"name": "Пельмени",
+		"category": "second_dish",
 		"steps": [
 			{
-				"name": "пельмени",
+				"name": "варить",
 				"seconds": 600,
-				"description": "True student's meal!"
+				"desc": "True student's meal!",
+				"image":""
 			}
 		]
 	}
