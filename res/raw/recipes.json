@@ -1,0 +1,13 @@
+[
+	{
+		"id": 0,
+		"name": "Борщ",
+		"steps": [
+			{
+				"name": "пельмени",
+				"seconds": 600,
+				"description": "True student's meal!"
+			}
+		]
+	}
+]
