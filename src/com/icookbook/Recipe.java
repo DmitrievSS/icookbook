@@ -2,18 +2,23 @@ package com.icookbook;
 
 import java.util.List;
 
+import android.graphics.Picture;
+
 public class Recipe {
 	
 	private int id;
 	private String name;
 	private List<Step> steps;
 	private String category;
+	private Picture image;
 	
-	public Recipe(int id, String name, String category, List<Step> steps) {
+	public Recipe(int id, String name, String category,
+			Picture image, List<Step> steps) {
 		this.id= id;
 		this.name = name;
 		this.category = category;
 		this.steps = steps;
+		this.image = image;
 	}
 
 	public int getId() {
@@ -22,6 +27,14 @@ public class Recipe {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Picture getImage() {
+		return image;
+	}
+
+	public void setImage(Picture image) {
+		this.image = image;
 	}
 
 	public String getName() {

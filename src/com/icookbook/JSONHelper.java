@@ -52,12 +52,13 @@ public final class JSONHelper {
 		int id = obj.getInt("id");
 		String name = obj.getString("name");
 		String category = obj.getString("category");
+		Picture image = parsePicture(obj.getString("image"));
 		JSONArray arrSteps = obj.getJSONArray("steps");
 		ArrayList<Step> steps = new ArrayList<Step>(arrSteps.length());
 		for (int i = 0;i<arrSteps.length();i++) {
 			steps.add(parseStep(arrSteps.getJSONObject(i)));
 		}
-		return new Recipe(id, name, category, steps);
+		return new Recipe(id, name, category, image, steps);
 	}
 	
 	public static Step parseStep(JSONObject obj) throws JSONException {
@@ -69,9 +70,13 @@ public final class JSONHelper {
 		if (temp == null || temp.equals("")) {
 			image = null;
 		} else {
-			byte[] pic = Base64.decode(temp, Base64.DEFAULT);
-			image = Picture.createFromStream(new ByteArrayInputStream(pic));
+			image = parsePicture(temp);
 		}
 		return new Step(name, description, seconds, image);
+	}
+	
+	public static Picture parsePicture(String in) {
+		byte[] pic = Base64.decode(in, Base64.DEFAULT);
+		return Picture.createFromStream(new ByteArrayInputStream(pic));
 	}
 }
